@@ -63,16 +63,21 @@ bool KMeans::init(const std::vector<Point> &points) {
     }
 
 
+    learned = false;
+
+
     return true;
 }
 
 bool KMeans::run() {
     for (int iteration = 1; iteration <= max_iterations_; ++iteration) {
+        if(!isQuiet)
         cout << "== KMeans iteration " << iteration << " == " << endl;
         bool changed = assign();
         update_means();
 
         if (!changed) {
+            if(!isQuiet)
             cout << "KMeans has converged after " << iteration <<  " iterations."
                  << endl;
 
@@ -85,6 +90,7 @@ bool KMeans::run() {
             }
 
 
+            learned = true;
             return true;
         }
     }
@@ -92,6 +98,10 @@ bool KMeans::run() {
 
 
     return false;
+}
+
+bool KMeans::hasLearned(){
+    return learned;
 }
 
 
@@ -225,6 +235,7 @@ bool KMeans::assign() {
         bool ret = point.update(new_cluster);
         changed = changed || ret;
 
+        if(!isQuiet)
         cout << "Assigned point " << point << " to cluster: "
              << new_cluster << endl;
     }
@@ -331,4 +342,10 @@ void KMeans::writeMeans(const std::string &filepath) {
         file_stream << endl;
     }
     return;
+}
+
+
+
+void KMeans::quiet(bool q){
+    isQuiet = q;
 }

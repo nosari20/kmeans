@@ -32,8 +32,6 @@ class KMeans {
   // Run until convergence.
   bool run();
 
-  std::string assignNameToCluster(int i);
-
   // Compute errors
   void computeErrors();
   void printErrors();
@@ -53,6 +51,10 @@ class KMeans {
   // Write means to file, in the same format as the input file.
   void writeMeans(const std::string &filepath);
 
+
+  bool hasLearned();
+
+  void quiet(bool q);
  protected:
   // Assign each point to the nearest cluster. Returns true if any point's
   // cluster assignment has changed, so we can detect convergence.
@@ -62,6 +64,8 @@ class KMeans {
   bool update_means();
 
 
+  // Assign a name to the cluster i
+  std::string assignNameToCluster(int i);
 
   // Computes a new cluster mean (output parameter mean) using the points in
   // that cluster. The multimap is mapping from cluster_id -> Point* (it is
@@ -76,6 +80,10 @@ class KMeans {
   int max_iterations_;
   std::vector<Point> means_;
   std::vector<Point> points_;
+
+  bool learned;
+
+  bool isQuiet = false;
 
 
 
