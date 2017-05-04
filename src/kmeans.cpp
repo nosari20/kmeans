@@ -173,10 +173,15 @@ void KMeans::printErrors() {
     for (const auto &c : classes_) {
         std::vector<int> v = errors[c];
         cout << "Classe : " << c << endl;
-        cout << "\t Correct                  : " << v.at(0) << endl;
-        cout << "\t Type I  (false positive) : " << v.at(1) << endl;
-        cout << "\t Type II (false negative) : " << v.at(2) << endl;
-    }
+
+        if(v.size() > 0){
+            cout << "\t Correct                  : " << v.at(0) << endl;
+            cout << "\t Type I  (false positive) : " << v.at(1) << endl;
+            cout << "\t Type II (false negative) : " << v.at(2) << endl;
+        }else{
+            cerr << "Errror";
+        }
+     }
 }
 
 
