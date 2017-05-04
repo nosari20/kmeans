@@ -43,11 +43,21 @@ int main(int argc, char *argv[]) {
 
   //kmeans.writeMeans("means.txt");
 
-  double x, y;
+  std::vector<double> p(points.at(0).dimensions_);
 
-  cin >> x >> y;
 
-  cout << kmeans.findNearestClass(Point(x,y)).first << endl;
+
+
+  double arr [points.at(0).dimensions_];
+  for(int i = 0 ; i < points.at(0).dimensions_ ; i++){
+     cin >> arr[i];
+  }
+
+
+  cout << "Enter a new Point" << endl;
+  vector<double> vec (arr, arr + sizeof(arr) / sizeof(arr[0]) );
+
+  cout << kmeans.findNearestClass(Point(vec)).first << endl;
 
 
 

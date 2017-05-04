@@ -158,9 +158,18 @@ void KMeans::computeErrors() {
         errors[name] = errs;
     }
 }
+std::map<std::string, std::vector<int>> KMeans::getErrors(){
+
+    if(errors.size() == 0){
+        computeErrors();
+    }
+    return errors;
+}
 
 void KMeans::printErrors() {
-    computeErrors();
+    if(errors.size() == 0){
+        computeErrors();
+    }
     for (const auto &c : classes_) {
         std::vector<int> v = errors[c];
         cout << "Classe : " << c << endl;

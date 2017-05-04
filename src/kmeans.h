@@ -37,6 +37,7 @@ class KMeans {
   // Compute errors
   void computeErrors();
   void printErrors();
+  std::map<std::string, std::vector<int>> getErrors();
 
 
   // Load the points from file and into the vector.

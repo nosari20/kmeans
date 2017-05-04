@@ -24,6 +24,7 @@ public:
 
     ~Point() { }
 
+
     // Compute distance between two points.
     static double distance(const Point &p1, const Point &p2);
 
