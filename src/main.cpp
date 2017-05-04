@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
 
   kmeans.printErrors();
 
-  //kmeans.printMeans();
+  kmeans.printMeans();
 
   //kmeans.writeMeans("means.txt");
 
@@ -45,17 +45,22 @@ int main(int argc, char *argv[]) {
 
 
 
+  /*
+
+  cout << "Enter a new Point" << endl;
   double arr [points.at(0).dimensions_];
   for(int i = 0 ; i < points.at(0).dimensions_ ; i++){
      cin >> arr[i];
   }
 
 
-  cout << "Enter a new Point" << endl;
+
+
   vector<double> vec (arr, arr + sizeof(arr) / sizeof(arr[0]) );
 
   cout << kmeans.findNearestClass(Point(vec)).first << endl;
 
+  */
 
 
   cout << "Finished." << endl;
