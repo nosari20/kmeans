@@ -18,15 +18,11 @@ target_link_libraries(kmeans kmeans_lib)
 
 configure_file(src/sample_data/data_200_2.txt data_200_2.txt COPYONLY)
 configure_file(src/sample_data/data_400_50.txt data_400_50.txt COPYONLY)
-<<<<<<< HEAD
+
+
 configure_file(src/sample_data/test.txt test.txt COPYONLY)
 
 
 
-=======
 
 
-enable_testing()
-add_subdirectory(googletest)
-add_subdirectory(src/test)
->>>>>>> 3af446c0cb973ae2f39a6e6a421ac396b3c243ac
