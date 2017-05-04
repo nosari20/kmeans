@@ -7,22 +7,19 @@
 using namespace std;
 
 void usage() {
-  cout << "Usage: ./kmeans <filename> <k>" << endl;
+  cout << "Usage: ./kmeans <filename> " << endl;
   cout << "   file should be space-separated points, one point per line."
-  << endl;
-  cout << "   k is the number of desired clusters."
   << endl;
   return;
 }
 
 int main(int argc, char *argv[]) {
 
-  if (argc < 3) {
+  if (argc < 2) {
     usage();
     return -1;
   }
   const std::string fpath = argv[1];
-  const int num_clusters = atoi(argv[2]);
 
   std::vector<Point> points;
 
