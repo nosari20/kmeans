@@ -190,14 +190,24 @@ void KMeans::printErrors() {
     if(errors.size() == 0){
         computeErrors();
     }
+    int fp = 0;
+    int fn = 0;
+    int corr = 0;
     for (const auto &c : classes_) {
         std::vector<int> v = errors[c];
         cout << "Classe : " << c << endl;
+        corr+= v.at(0);
+        fp+= v.at(1);
+        fn+= v.at(2);
         cout << "\t Correct                  : " << v.at(0) << endl;
         cout << "\t Type I  (false positive) : " << v.at(1) << endl;
         cout << "\t Type II (false negative) : " << v.at(2) << endl;
 
     }
+
+    cout << "Total Correct                  : " << corr << endl;
+    cout << "Total Type I  (false positive) : " << fp << endl;
+    cout << "Total Type II (false negative) : " << fn << endl;
 }
 
 
